@@ -8,6 +8,6 @@ class SpringdockerApplicationTests {
 
 	@Test
 	void contextLoads() {
+		SpringdockerApplication.main(new String[]{});
 	}
-
 }
