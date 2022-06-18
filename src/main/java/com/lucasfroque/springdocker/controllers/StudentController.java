@@ -5,7 +5,9 @@ import com.lucasfroque.springdocker.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -25,7 +27,8 @@ public class StudentController {
     @PostMapping
     ResponseEntity<Student> insert(@RequestBody Student student){
         Student response = service.insert(student);
-
-        return ResponseEntity.ok(response);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+                .path("/{id}").buildAndExpand(response.getId()).toUri();
+        return ResponseEntity.created(uri).body(response);
     }
 }

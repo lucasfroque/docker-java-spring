@@ -4,6 +4,9 @@ import com.lucasfroque.springdocker.entities.Student;
 import com.lucasfroque.springdocker.repositories.StudentRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,16 +23,21 @@ class StudentServiceTest {
     public static final String GENDER  = "M";
     Student student;
 
+    @Mock
     private StudentRepository repository;
+    @InjectMocks
     private StudentService service;
 
     @BeforeEach
     void setUp() {
+        MockitoAnnotations.openMocks(this);
+        start();
     }
 
     @Test
     void insert() {
         when(repository.save(any())).thenReturn(student);
+
         Student response = service.insert(student);
 
         assertNotNull(response);
