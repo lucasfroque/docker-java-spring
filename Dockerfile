@@ -1,7 +1,5 @@
 FROM openjdk:17
 
-ARG PROFILE
-
 ENV APP_PROFILE=${PROFILE}
 
 WORKDIR /project/spring-docker
