@@ -135,12 +135,9 @@ Starting  app-springdocker ... done
 #### Returns all students
 
 ```http
-  GET /api/items
+  GET /students
 ```
 
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `api_key` | `string` | **Obrigatório**. A chave da sua API |
 
 #### Save a student in the database
 
