@@ -44,6 +44,7 @@ Now we have a working Spring Boot application that we can access at localhost:80
 </p>
 
 <h3>Create Dockerfile</h3>
+
 ```yaml
 FROM openjdk:17
 
